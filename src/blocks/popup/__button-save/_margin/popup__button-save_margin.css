@@ -1,9 +1,0 @@
-.popup__save_margin {
-    margin-top: 30px;
-}
-
-@media screen and (min-width: 768px) {
-  .popup__save_margin {
-      margin-top: 40px;
-  }
-}

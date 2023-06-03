@@ -1,28 +1,23 @@
-import React, { useEffect, useRef } from "react";
-import PopupWithForm from "./PopupWithForm";
+import React, { useEffect } from "react"
+import PopupWithForm from "./PopupWithForm"
 
-function EditAvatarPopup({
-  onLoading,
-  onClose,
-  onUpdateAvatar,
-  isOpen,
-  onCloseOverlay,
-}) {
-  const avatarRef = useRef(null);
+function EditAvatarPopup({ onLoading, onClose, onUpdateAvatar, isOpen,
+  onCloseOverlay }) {
+  const avatarRef = React.useRef(null)
 
   useEffect(() => {
-    avatarRef.current.value = "";
-  }, [isOpen]);
+    avatarRef.current.value = ""
+  }, [isOpen])
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     onUpdateAvatar({
       avatar: avatarRef.current.value,
-    });
+    })
   }
 
   function handleChangeAvatar() {
-    return avatarRef.current.value;
+    return avatarRef.current.value
   }
 
   return (
@@ -35,19 +30,21 @@ function EditAvatarPopup({
       isOpen={isOpen}
       onCloseOverlay={onCloseOverlay}
     >
-      <input
-        className="popup__input popup__input_type_link-avatar"
-        id="nameInputAvatar"
-        name="avatar"
-        type="url"
-        placeholder="Введите ссылку URL"
-        onChange={handleChangeAvatar}
-        ref={avatarRef}
-        required
-      />
-      <span className="error nameInputAvatar-error" />
+      <label className="popup__label">
+        <input
+          className="popup__input popup__input_type_link-avatar"
+          id="nameInputAvatar"
+          name="avatar"
+          type="url"
+          onChange={handleChangeAvatar}
+          ref={avatarRef}
+          placeholder="Введите ссылку URL"
+          required
+        />
+        <span className="nameInputAvatar-error error" />
+      </label>
     </PopupWithForm>
-  );
+  )
 }
 
-export default EditAvatarPopup;
+export default EditAvatarPopup

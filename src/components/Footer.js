@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer page__footer">
       <p className="footer__copyright">
-        © {new Date().getFullYear()}. Mesto Russia
+        © {new Date().getFullYear()}. практикум х Буштаева Тома
       </p>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

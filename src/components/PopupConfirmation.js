@@ -1,17 +1,10 @@
-import React from "react";
-import PopupWithForm from "./PopupWithForm";
+import React from "react"
+import PopupWithForm from "./PopupWithForm"
 
-function PopupConfirmation({
-  onLoading,
-  onClose,
-  isOpen,
-  onCardDelete,
-  card,
-  onCloseOverlay,
-}) {
+function PopupConfirmation({ onLoading, onClose, isOpen, onCardDelete, card, onCloseOverlay }) {
   function handleSubmit(event) {
-    event.preventDefault();
-    onCardDelete(card);
+    event.preventDefault()
+    onCardDelete(card)
   }
 
   return (
@@ -24,7 +17,7 @@ function PopupConfirmation({
       onSubmit={handleSubmit}
       onCloseOverlay={onCloseOverlay}
     />
-  );
+  )
 }
 
-export default PopupConfirmation;
+export default PopupConfirmation

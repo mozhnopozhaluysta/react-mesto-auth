@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 function ImagePopup({ card, onClose, onCloseOverlay }) {
   return (
@@ -9,14 +9,10 @@ function ImagePopup({ card, onClose, onCloseOverlay }) {
       <figure className="popup__image-container">
         <img className="popup__image" src={card.link} alt={card.name} />
         <figcaption className="popup__image-title">{card.name}</figcaption>
-        <button
-          className="popup__button-close"
-          type="button"
-          onClick={onClose}
-        ></button>
+        <button className="popup__close" type="button" onClick={onClose} />
       </figure>
     </div>
-  );
+  )
 }
 
-export default ImagePopup;
+export default ImagePopup

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import PopupWithForm from "./PopupWithForm";
+import React, { useState, useEffect } from "react"
+import { CurrentUserContext } from "../contexts/CurrentUserContext"
+import PopupWithForm from "./PopupWithForm"
 
 function EditProfilePopup({
   isOpen,
@@ -9,29 +9,29 @@ function EditProfilePopup({
   onClose,
   onCloseOverlay,
 }) {
-  const currentUser = useContext(CurrentUserContext);
-  const [about, setAbout] = useState("");
-  const [name, setName] = useState("");
+  const currentUser = React.useContext(CurrentUserContext)
+  const [about, setAbout] = useState("")
+  const [name, setName] = useState("")
 
   useEffect(() => {
-    setName(currentUser.name);
-    setAbout(currentUser.about);
-  }, [currentUser, isOpen]);
+    setName(currentUser.name)
+    setAbout(currentUser.about)
+  }, [currentUser, isOpen])
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     onUpdateUser({
       name: name,
       about: about,
-    });
+    })
   }
 
   function handleChangeName(e) {
-    setName(e.target.value);
+    setName(e.target.value)
   }
 
   function handleChangeAbout(e) {
-    setAbout(e.target.value);
+    setAbout(e.target.value)
   }
 
   return (
@@ -44,34 +44,38 @@ function EditProfilePopup({
       isOpen={isOpen}
       onCloseOverlay={onCloseOverlay}
     >
-      <input
-        className="popup__input popup__input_type_name"
-        id="popupName"
-        name="name"
-        type="text"
-        placeholder="Имя"
-        minLength="2"
-        maxLength="40"
-        value={name || ""}
-        onChange={handleChangeName}
-        required
-      />
-      <span className="error popupName-error" />
-      <input
-        className="popup__input popup__input_type_info"
-        id="popupInfo"
-        name="about"
-        type="text"
-        placeholder="О себе"
-        minLength="2"
-        maxLength="200"
-        value={about || ""}
-        onChange={handleChangeAbout}
-        required
-      />
-      <span className="error popupInfo-error" />
+      <label className="popup__label">
+        <input
+          className="popup__input popup__input_type_name"
+          id="nameInput"
+          name="name"
+          type="text"
+          value={name || ""}
+          onChange={handleChangeName}
+          placeholder="Имя"
+          minLength="2"
+          maxLength="40"
+          required
+        />
+        <span className="nameInput-error error" />
+      </label>
+      <label className="popup__label">
+        <input
+          className="popup__input popup__input_type_job"
+          id="jobInput"
+          name="about"
+          type="text"
+          value={about || ""}
+          onChange={handleChangeAbout}
+          placeholder="О себе"
+          minLength="2"
+          maxLength="200"
+          required
+        />
+        <span className="jobInput-error error" />
+      </label>
     </PopupWithForm>
-  );
+  )
 }
 
-export default EditProfilePopup;
+export default EditProfilePopup
