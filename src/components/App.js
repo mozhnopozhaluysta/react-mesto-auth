@@ -44,7 +44,7 @@ function App() {
 
     if (jwt) {
       auth
-        .changeToken(jwt)
+        .checkToken(jwt)
         .then((res) => {
           setIsLoggedIn(true)
           setEmail(res.data.email)

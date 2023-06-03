@@ -16,10 +16,6 @@ function EditAvatarPopup({ onLoading, onClose, onUpdateAvatar, isOpen,
     })
   }
 
-  function handleChangeAvatar() {
-    return avatarRef.current.value
-  }
-
   return (
     <PopupWithForm
       name="popupEditAvatar"
@@ -36,7 +32,6 @@ function EditAvatarPopup({ onLoading, onClose, onUpdateAvatar, isOpen,
           id="nameInputAvatar"
           name="avatar"
           type="url"
-          onChange={handleChangeAvatar}
           ref={avatarRef}
           placeholder="Введите ссылку URL"
           required

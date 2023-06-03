@@ -1,6 +1,5 @@
-import SuccessIcon from "../images/SuccessIcon.svg";
-import FailIcon from "../images/FailIcon.svg";
-/*import closeIcon from "../images/CloseIcon.svg";*/
+import successIcon from "../images/successIcon.svg";
+import failIcon from "../images/failIcon.svg";
 import React from "react";
 
 function InfoToolTip(props) {
@@ -12,7 +11,7 @@ function InfoToolTip(props) {
         {props.isSuccess ? (
           <>
             <img
-              src={`${SuccessIcon}`}
+              src={`${successIcon}`}
               alt="Регистрация прошла успешно."
               className="popup__tooltip_image"
             />
@@ -23,7 +22,7 @@ function InfoToolTip(props) {
         ) : (
           <>
             <img
-              src={`${FailIcon}`}
+              src={`${failIcon}`}
               alt="Регистрация не была выполнена."
               className="popup__tooltip_image"
             />

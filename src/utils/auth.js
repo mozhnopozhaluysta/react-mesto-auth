@@ -1,6 +1,6 @@
 const BACKEND_URL = "https://auth.nomoreparties.co"
 
-function changeRes(res) {
+function checkRes(res) {
   if (res.ok) {
     return res.json()
   }
@@ -18,7 +18,7 @@ export const registration = (email, password) => {
       email: email,
       password: password,
     }),
-  }).then(changeRes)
+  }).then(checkRes)
 }
 
 export const login = (email, password) => {
@@ -32,7 +32,7 @@ export const login = (email, password) => {
       password: password,
     }),
   })
-    .then(changeRes)
+    .then(checkRes)
     .then((data) => {
       if (data.token) {
         localStorage.setItem("jwt", data.token)
@@ -41,12 +41,12 @@ export const login = (email, password) => {
     })
 }
 
-export const changeToken = (jwt) => {
+export const checkToken = (jwt) => {
   return fetch(`${BACKEND_URL}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     },
-  }).then(changeRes)
+  }).then(checkRes)
 }

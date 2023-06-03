@@ -19,7 +19,7 @@ function Main(props) {
             <img
               className="profile__avatar"
               src={currentUser.avatar}
-              alt="Изображенна фото Жак-Ив Кусто в красной шапке"
+              alt="Изображение аватара профиля"
             />
             <button
               className="profile__edit-avatar"
