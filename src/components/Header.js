@@ -43,7 +43,7 @@ function Header(props) {
           <button
             className="header__burger"
             type="button"
-            onClick={props.handleClickOpenMobileMenu}
+            onClick={props.changeOpenMobileMenu}
             style={{
               backgroundImage: `url(${
                 props.isMobileMenuOpen ? closeMenuIcon : burgerMenu
